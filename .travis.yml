@@ -8,7 +8,10 @@ script:
   - npm test
   - npm run build
 deploy:
-  provider: script
-  script: bash .travis_publish
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: build
+  target-branch: master
+  keep-history: true
   on:
     branch: master
