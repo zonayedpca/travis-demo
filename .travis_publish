@@ -3,11 +3,12 @@ PUBLICATION_BRANCH=master
 # Checkout the branch
 REPO_PATH=$PWD
 pushd $HOME
-git clone --branch=$PUBLICATION_BRANCH    https://${github_token}@github.com/$TRAVIS_REPO_SLUG publish 2>&1 > /dev/null
+git clone --branch=$PUBLICATION_BRANCH https://${github_token}@github.com/$TRAVIS_REPO_SLUG publish 2>&1 > /dev/null
 cd publish
 # Update pages
 cp -r $REPO_PATH/distribution .
 # Commit and push latest version
+cp index.html 404.html
 git add .
 git config user.name  "Travis"
 git config user.email "travis@travis-ci.org"
