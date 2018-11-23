@@ -5,9 +5,9 @@ cache:
   directories:
   - node_modules
 script:
-  - cp -a ./ ./build/ 
   - npm test
   - npm run build
+  - cp -a ./ ./build/ 
 deploy:
   skip_cleanup: true
   github_token: $github_token
